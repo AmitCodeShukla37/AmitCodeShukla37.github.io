@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Google Cloud Platform">
+  <defs>
+    <linearGradient id="gcpGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4285F4"/>
+      <stop offset="0.4" stop-color="#34A853"/>
+      <stop offset="0.7" stop-color="#FBBC05"/>
+      <stop offset="1" stop-color="#EA4335"/>
+    </linearGradient>
+    <style>
+      @keyframes gcpFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2.5px); } }
+      @keyframes gcpShine { 0%,100% { opacity: 0.15; } 50% { opacity: 0.55; } }
+      .gcp-cloud { animation: gcpFloat 3s ease-in-out infinite; }
+      .gcp-shine { animation: gcpShine 2.4s ease-in-out infinite; }
+      @media (prefers-reduced-motion: reduce) { .gcp-cloud, .gcp-shine { animation: none; } }
+    </style>
+  </defs>
+  <g class="gcp-cloud">
+    <path d="M43 44 H21 a10 10 0 0 1 -1.9 -19.8 A13 13 0 0 1 45 21.5 a10 10 0 0 1 -2 22.5 Z" fill="url(#gcpGrad)"/>
+    <path class="gcp-shine" d="M24 27 a11 11 0 0 1 18 2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+</svg>

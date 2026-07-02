@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Amazon Web Services">
+  <defs>
+    <style>
+      @keyframes awsBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.6px); } }
+      @keyframes awsGlow { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
+      .aws-smile { animation: awsBob 2.6s ease-in-out infinite; }
+      .aws-wm { animation: awsGlow 2.6s ease-in-out infinite; }
+      @media (prefers-reduced-motion: reduce) { .aws-smile, .aws-wm { animation: none; } }
+    </style>
+  </defs>
+  <text class="aws-wm" x="32" y="30" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="21" text-anchor="middle" fill="#FF9900">aws</text>
+  <g class="aws-smile" fill="#FF9900">
+    <path d="M14 39 C24 46, 40 46, 50 39" fill="none" stroke="#FF9900" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M50 39 l-1.5 -5.4 l6.2 2.6 Z"/>
+  </g>
+</svg>
