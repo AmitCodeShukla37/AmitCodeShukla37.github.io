@@ -497,18 +497,23 @@ on(contactForm, "submit", function (e) {
     return d;
   };
 
+  const container = document.querySelector("main .container") || document.querySelector(".container");
+
   const build = function () {
     docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
     W = document.documentElement.clientWidth || window.innerWidth;
-    const gutter = (W - Math.min(W, 1180)) / 2;
+
+    // measure the ACTUAL content column (its max-width changes on big screens), so
+    // the rail is always placed in the real gutter beside the content — never over it.
+    const cr = container ? container.getBoundingClientRect() : { left: (W - 1180) / 2, right: (W + 1180) / 2 };
+    const gutter = Math.min(cr.left, W - cr.right);
     if (!ok || !W || W <= 1024 || gutter < 60) { svg.style.display = "none"; totalLen = 0; return; }
     svg.style.display = "";
 
-    // hug just outside the content column (not the screen edge) so the rail + its
-    // arrow/glow never get clipped at the viewport edges on narrow-gutter laptops.
+    // hug just outside the content column so the rail sits in the empty gutter
     const inset = 24;
-    const leftX = gutter - inset;             // just left of the content
-    const rightX = W - gutter + inset;        // just right of the content
+    const leftX = cr.left - inset;            // just left of the content
+    const rightX = cr.right + inset;          // just right of the content
     const sideOf = i => (i % 2 === 0) ? leftX : rightX;
     const headY = i => { const r = heads[i].getBoundingClientRect(); return r.top + window.scrollY + r.height / 2; };
     const secTop = i => secs[i].getBoundingClientRect().top + window.scrollY;
